@@ -1,17 +1,18 @@
-﻿using CarsDapperProject.Application.DTOs;
-using CarsDapperProject.Application.Services;
-using Microsoft.AspNetCore.Http;
+﻿using CarsDapperProject.Application.Abstractions;
+using CarsDapperProject.Application.DTOs;
+using CarsDapperProject.WebAPI.Filters;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CarsDapperProject.WebAPI.Controllers;
 
 [Route("api/brands")]
 [ApiController]
+[TypeFilter<ApiExceptionFilter>]
 public class BrandController : ControllerBase
 {
-    private readonly BrandService _brandService;
+    private readonly IBrandService _brandService;
 
-    public BrandController(BrandService brandService)
+    public BrandController(IBrandService brandService)
     {
         _brandService = brandService;
     }
@@ -33,15 +34,15 @@ public class BrandController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> AddBrand([FromBody] BrandRequest createBrandRequest)
+    public async Task<IActionResult> AddBrand([FromBody] CreateBrandRequest createBrandRequest)
     {
         var brandId = await _brandService.AddBrandAsync(createBrandRequest); 
 
         return Ok(new { id = brandId });
     }
 
-    [HttpPut("{id}")]
-    public async Task<IActionResult> UpdateBrand([FromRoute] int id, [FromBody] BrandRequest updateBrandRequest)
+    [HttpPatch("{id}")]
+    public async Task<IActionResult> UpdateBrand([FromRoute] int id, [FromBody] UpdateBrandRequest updateBrandRequest)
     {
         await _brandService.UpdateBrandAsync(id, updateBrandRequest);
 

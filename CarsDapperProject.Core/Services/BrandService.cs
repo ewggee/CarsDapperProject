@@ -1,10 +1,11 @@
 ﻿using CarsDapperProject.Application.Abstractions;
 using CarsDapperProject.Application.DTOs;
+using CarsDapperProject.Application.Exceptions.Brand;
 using CarsDapperProject.Application.Extensions;
 
 namespace CarsDapperProject.Application.Services;
 
-public class BrandService
+public class BrandService : IBrandService
 {
     private readonly IBrandRepository _brandRepository;
 
@@ -15,8 +16,8 @@ public class BrandService
 
     public async Task<BrandDto> GetBrandByIdAsync(int id)
     {
-        var brand = await _brandRepository.GetByIdAsync(id);
-        //TODO: выброс исключения при отсутствии бренда
+        var brand = await _brandRepository.GetByIdAsync(id) 
+            ?? throw new BrandNotFoundException(id);
 
         return brand.MapToDto();
     }
@@ -28,16 +29,16 @@ public class BrandService
         return brands.Select(b => b.MapToDto()).ToList().AsReadOnly();
     }
 
-    public async Task<int> AddBrandAsync(BrandRequest createBrandRequest)
+    public async Task<int> AddBrandAsync(CreateBrandRequest createBrandRequest)
     {
         var brandId = await _brandRepository.AddAsync(createBrandRequest.MapToEntity());
 
         return brandId;
     }
 
-    public async Task UpdateBrandAsync(int id, BrandRequest brandRequest)
+    public async Task UpdateBrandAsync(int id, UpdateBrandRequest updateBrandRequest)
     {
-        var brand = brandRequest.MapToEntity();
+        var brand = updateBrandRequest.MapToEntity();
         brand.Id = id;
 
         await _brandRepository.UpdateAsync(brand);
@@ -45,6 +46,9 @@ public class BrandService
 
     public async Task DeleteBrandAsync(int id)
     {
-        await _brandRepository.DeleteAsync(id);
+        var deletedRows = await _brandRepository.DeleteAsync(id);
+     
+        if (deletedRows == 0) 
+            throw new BrandNotFoundException(id);
     }
 }

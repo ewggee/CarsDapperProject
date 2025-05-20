@@ -3,7 +3,6 @@ using CarsDapperProject.Application.Services;
 using CarsDapperProject.Domain.Migrations;
 using CarsDapperProject.Infrastructure.DataAccess;
 using CarsDapperProject.Infrastructure.DataAccess.Repositories;
-using FluentMigrator;
 using FluentMigrator.Runner;
 
 namespace CarsDapperProject.WebAPI.Extensions;
@@ -12,7 +11,7 @@ public static class ServiceCollectionExtension
 {
     public static IServiceCollection AddServices(this IServiceCollection services)
     {
-        services.AddScoped<BrandService>();
+        services.AddScoped<IBrandService, BrandService>();
 
         return services;
     }

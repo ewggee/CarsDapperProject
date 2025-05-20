@@ -80,16 +80,18 @@ public class BrandRepository : BaseRepository<Brand>, IBrandRepository
             new { name = entity.Name, id = entity.Id });
     }
 
-    public override async Task DeleteAsync(int id)
+    public new async Task<int> DeleteAsync(int id)
     {
         var query = $@"
-            DELETE FROM brands 
-            WHERE id = @id";
+                DELETE FROM brands 
+                WHERE id = @id";
 
         using var connection = _context.CreateConnection();
 
-        await connection.ExecuteAsync(
+        var rowsAffected = await connection.ExecuteAsync(
             query,
             new { id = id });
+
+        return rowsAffected;
     }
 }
