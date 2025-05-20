@@ -4,7 +4,7 @@ using CarsDapperProject.Application.Extensions;
 
 namespace CarsDapperProject.Application.Services;
 
-public class BrandService
+public class BrandService : IBrandService
 {
     private readonly IBrandRepository _brandRepository;
 

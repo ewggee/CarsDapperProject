@@ -1,6 +1,5 @@
-﻿using CarsDapperProject.Application.DTOs;
-using CarsDapperProject.Application.Services;
-using Microsoft.AspNetCore.Http;
+﻿using CarsDapperProject.Application.Abstractions;
+using CarsDapperProject.Application.DTOs;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CarsDapperProject.WebAPI.Controllers;
@@ -9,9 +8,9 @@ namespace CarsDapperProject.WebAPI.Controllers;
 [ApiController]
 public class BrandController : ControllerBase
 {
-    private readonly BrandService _brandService;
+    private readonly IBrandService _brandService;
 
-    public BrandController(BrandService brandService)
+    public BrandController(IBrandService brandService)
     {
         _brandService = brandService;
     }
