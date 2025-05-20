@@ -1,5 +1,6 @@
 ﻿using CarsDapperProject.Application.Abstractions;
 using CarsDapperProject.Application.DTOs;
+using CarsDapperProject.Application.Exceptions.Brand;
 using CarsDapperProject.Application.Extensions;
 
 namespace CarsDapperProject.Application.Services;
@@ -15,8 +16,8 @@ public class BrandService : IBrandService
 
     public async Task<BrandDto> GetBrandByIdAsync(int id)
     {
-        var brand = await _brandRepository.GetByIdAsync(id);
-        //TODO: выброс исключения при отсутствии бренда
+        var brand = await _brandRepository.GetByIdAsync(id) 
+            ?? throw new BrandNotFoundException(id);
 
         return brand.MapToDto();
     }
@@ -45,6 +46,9 @@ public class BrandService : IBrandService
 
     public async Task DeleteBrandAsync(int id)
     {
-        await _brandRepository.DeleteAsync(id);
+        var deletedRows = await _brandRepository.DeleteAsync(id);
+     
+        if (deletedRows == 0) 
+            throw new BrandNotFoundException(id);
     }
 }

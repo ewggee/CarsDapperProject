@@ -1,11 +1,13 @@
 ﻿using CarsDapperProject.Application.Abstractions;
 using CarsDapperProject.Application.DTOs;
+using CarsDapperProject.WebAPI.Filters;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CarsDapperProject.WebAPI.Controllers;
 
 [Route("api/brands")]
 [ApiController]
+[TypeFilter<ApiExceptionFilter>]
 public class BrandController : ControllerBase
 {
     private readonly IBrandService _brandService;
