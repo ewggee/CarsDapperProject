@@ -1,6 +1,4 @@
-﻿using System.Linq.Expressions;
-
-namespace CarsDapperProject.Application.Abstractions;
+﻿namespace CarsDapperProject.Application.Abstractions;
 
 public interface IRepository<T>
 {

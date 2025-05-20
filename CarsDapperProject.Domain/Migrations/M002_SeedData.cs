@@ -1,5 +1,4 @@
-﻿using CarsDapperProject.Domain.Entities;
-using FluentMigrator;
+﻿using FluentMigrator;
 
 namespace CarsDapperProject.Domain.Migrations;
 

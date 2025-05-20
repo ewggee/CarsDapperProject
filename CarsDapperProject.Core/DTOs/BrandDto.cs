@@ -1,6 +1,4 @@
-﻿using CarsDapperProject.Domain.Entities;
-
-namespace CarsDapperProject.Application.DTOs;
+﻿namespace CarsDapperProject.Application.DTOs;
 
 public class BrandDto
 {
