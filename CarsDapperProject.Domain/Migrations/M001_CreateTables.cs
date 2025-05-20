@@ -7,11 +7,6 @@ public class M001_CreateTables : Migration
 {
     public override void Up()
     {
-        //Execute.Sql(@"
-        //    DROP TABLE IF NOT EXISTS brands CASCADE;
-        //    DROP TABLE IF NOT EXISTS cars CASCADE;
-        //    DROP TABLE IF NOT EXISTS owners CASCADE;");
-
         Create.Table("brands")
             .WithColumn("id").AsInt32().PrimaryKey().Identity()
             .WithColumn("name").AsString(100).NotNullable();
