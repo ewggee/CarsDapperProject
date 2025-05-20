@@ -40,7 +40,7 @@ public class BrandController : ControllerBase
         return Ok(new { id = brandId });
     }
 
-    [HttpPut("{id}")]
+    [HttpPatch("{id}")]
     public async Task<IActionResult> UpdateBrand([FromRoute] int id, [FromBody] BrandRequest updateBrandRequest)
     {
         await _brandService.UpdateBrandAsync(id, updateBrandRequest);
