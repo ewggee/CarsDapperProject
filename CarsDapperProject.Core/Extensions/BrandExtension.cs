@@ -23,11 +23,19 @@ public static class BrandExtension
         };
     }
 
-    public static Brand MapToEntity(this BrandRequest createBrandRequest)
+    public static Brand MapToEntity(this CreateBrandRequest createBrandRequest)
     {
         return new Brand
         {
             Name = createBrandRequest.Name
+        };
+    }
+
+    public static Brand MapToEntity(this UpdateBrandRequest updateBrandRequest)
+    {
+        return new Brand
+        {
+            Name = updateBrandRequest.Name
         };
     }
 }

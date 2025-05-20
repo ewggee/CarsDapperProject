@@ -32,7 +32,7 @@ public class BrandController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> AddBrand([FromBody] BrandRequest createBrandRequest)
+    public async Task<IActionResult> AddBrand([FromBody] CreateBrandRequest createBrandRequest)
     {
         var brandId = await _brandService.AddBrandAsync(createBrandRequest); 
 
@@ -40,7 +40,7 @@ public class BrandController : ControllerBase
     }
 
     [HttpPatch("{id}")]
-    public async Task<IActionResult> UpdateBrand([FromRoute] int id, [FromBody] BrandRequest updateBrandRequest)
+    public async Task<IActionResult> UpdateBrand([FromRoute] int id, [FromBody] UpdateBrandRequest updateBrandRequest)
     {
         await _brandService.UpdateBrandAsync(id, updateBrandRequest);
 

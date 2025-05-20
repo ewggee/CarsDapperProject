@@ -28,16 +28,16 @@ public class BrandService : IBrandService
         return brands.Select(b => b.MapToDto()).ToList().AsReadOnly();
     }
 
-    public async Task<int> AddBrandAsync(BrandRequest createBrandRequest)
+    public async Task<int> AddBrandAsync(CreateBrandRequest createBrandRequest)
     {
         var brandId = await _brandRepository.AddAsync(createBrandRequest.MapToEntity());
 
         return brandId;
     }
 
-    public async Task UpdateBrandAsync(int id, BrandRequest brandRequest)
+    public async Task UpdateBrandAsync(int id, UpdateBrandRequest updateBrandRequest)
     {
-        var brand = brandRequest.MapToEntity();
+        var brand = updateBrandRequest.MapToEntity();
         brand.Id = id;
 
         await _brandRepository.UpdateAsync(brand);
