@@ -1,4 +1,4 @@
-﻿using CarsDapperProject.Application.DTOs;
+﻿using CarsDapperProject.Contracts.DTOs;
 using CarsDapperProject.Domain.Entities;
 
 namespace CarsDapperProject.Application.Extensions;

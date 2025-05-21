@@ -1,6 +1,7 @@
-﻿using CarsDapperProject.Application.Abstractions;
-using CarsDapperProject.Application.Services;
+﻿using CarsDapperProject.Application.Services;
+using CarsDapperProject.Contracts.Services;
 using CarsDapperProject.Domain.Migrations;
+using CarsDapperProject.Domain.Repositories;
 using CarsDapperProject.Infrastructure.DataAccess;
 using CarsDapperProject.Infrastructure.DataAccess.Repositories;
 using FluentMigrator.Runner;

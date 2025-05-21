@@ -1,6 +1,6 @@
 ﻿using CarsDapperProject.Domain.Entities;
 
-namespace CarsDapperProject.Application.Abstractions;
+namespace CarsDapperProject.Domain.Repositories;
 
 public interface IBrandRepository : IRepository<Brand>
 {

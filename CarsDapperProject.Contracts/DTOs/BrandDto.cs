@@ -1,4 +1,4 @@
-﻿namespace CarsDapperProject.Application.DTOs;
+﻿namespace CarsDapperProject.Contracts.DTOs;
 
 public class BrandDto
 {

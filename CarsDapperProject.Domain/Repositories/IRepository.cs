@@ -1,4 +1,4 @@
-﻿namespace CarsDapperProject.Application.Abstractions;
+﻿namespace CarsDapperProject.Domain.Repositories;
 
 public interface IRepository<T>
 {

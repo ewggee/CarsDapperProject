@@ -1,5 +1,5 @@
-﻿using CarsDapperProject.Application.Abstractions;
-using CarsDapperProject.Domain.Entities;
+﻿using CarsDapperProject.Domain.Entities;
+using CarsDapperProject.Domain.Repositories;
 using Dapper;
 
 namespace CarsDapperProject.Infrastructure.DataAccess.Repositories;

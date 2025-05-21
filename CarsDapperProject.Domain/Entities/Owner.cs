@@ -1,6 +1,4 @@
-﻿using CarsDapperProject.Application.Abstractions;
-
-namespace CarsDapperProject.Domain.Entities;
+﻿namespace CarsDapperProject.Domain.Entities;
 
 public class Owner : IEntity
 {

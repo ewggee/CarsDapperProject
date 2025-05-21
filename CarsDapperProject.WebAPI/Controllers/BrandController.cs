@@ -1,5 +1,5 @@
-﻿using CarsDapperProject.Application.Abstractions;
-using CarsDapperProject.Application.DTOs;
+﻿using CarsDapperProject.Contracts.DTOs;
+using CarsDapperProject.Contracts.Services;
 using CarsDapperProject.WebAPI.Filters;
 using Microsoft.AspNetCore.Mvc;
 

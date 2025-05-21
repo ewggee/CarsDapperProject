@@ -1,7 +1,8 @@
-﻿using CarsDapperProject.Application.Abstractions;
-using CarsDapperProject.Application.DTOs;
-using CarsDapperProject.Application.Exceptions.Brand;
-using CarsDapperProject.Application.Extensions;
+﻿using CarsDapperProject.Application.Extensions;
+using CarsDapperProject.Contracts.DTOs;
+using CarsDapperProject.Contracts.Services;
+using CarsDapperProject.Domain.Exceptions.Brand;
+using CarsDapperProject.Domain.Repositories;
 
 namespace CarsDapperProject.Application.Services;
 

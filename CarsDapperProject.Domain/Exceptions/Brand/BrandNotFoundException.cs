@@ -1,4 +1,4 @@
-﻿namespace CarsDapperProject.Application.Exceptions.Brand;
+﻿namespace CarsDapperProject.Domain.Exceptions.Brand;
 
 public class BrandNotFoundException : EntityNotFoundException
 {

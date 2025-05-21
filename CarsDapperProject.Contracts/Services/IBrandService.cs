@@ -1,6 +1,6 @@
-﻿using CarsDapperProject.Application.DTOs;
+﻿using CarsDapperProject.Contracts.DTOs;
 
-namespace CarsDapperProject.Application.Abstractions;
+namespace CarsDapperProject.Contracts.Services;
 public interface IBrandService
 {
     Task<int> AddBrandAsync(CreateBrandRequest createBrandRequest);

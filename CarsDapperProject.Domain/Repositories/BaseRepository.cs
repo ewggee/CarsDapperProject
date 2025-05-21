@@ -1,6 +1,6 @@
-﻿using CarsDapperProject.Application.Abstractions;
+﻿using CarsDapperProject.Domain.Entities;
 
-namespace CarsDapperProject.Infrastructure.DataAccess.Repositories;
+namespace CarsDapperProject.Domain.Repositories;
 
 public abstract class BaseRepository<T> : IRepository<T>
     where T : IEntity
