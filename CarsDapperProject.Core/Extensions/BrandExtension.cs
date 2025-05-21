@@ -1,4 +1,5 @@
 ﻿using CarsDapperProject.Contracts.DTOs;
+using CarsDapperProject.Contracts.Requests.Brand;
 using CarsDapperProject.Domain.Entities;
 
 namespace CarsDapperProject.Application.Extensions;

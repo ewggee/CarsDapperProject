@@ -1,4 +1,4 @@
-﻿namespace CarsDapperProject.Infrastructure.DataAccess.Repositories;
+﻿namespace CarsDapperProject.Percistance.DataAccess.Repositories;
 
 public class OwnerRepository
 {

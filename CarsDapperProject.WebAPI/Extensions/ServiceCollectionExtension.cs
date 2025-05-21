@@ -3,7 +3,7 @@ using CarsDapperProject.Contracts.Services;
 using CarsDapperProject.Domain.Migrations;
 using CarsDapperProject.Domain.Repositories;
 using CarsDapperProject.Infrastructure.DataAccess;
-using CarsDapperProject.Infrastructure.DataAccess.Repositories;
+using CarsDapperProject.Percistance.DataAccess.Repositories;
 using FluentMigrator.Runner;
 
 namespace CarsDapperProject.WebAPI.Extensions;

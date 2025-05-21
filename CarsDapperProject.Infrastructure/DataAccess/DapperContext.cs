@@ -1,7 +1,7 @@
 ﻿using Npgsql;
 using System.Data;
 
-namespace CarsDapperProject.Infrastructure.DataAccess;
+namespace CarsDapperProject.Percistance.DataAccess;
 
 public class DapperContext
 {

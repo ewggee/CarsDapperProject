@@ -2,7 +2,7 @@
 using CarsDapperProject.Domain.Repositories;
 using Dapper;
 
-namespace CarsDapperProject.Infrastructure.DataAccess.Repositories;
+namespace CarsDapperProject.Percistance.DataAccess.Repositories;
 
 public class BrandRepository : BaseRepository<Brand>, IBrandRepository
 {
@@ -25,7 +25,7 @@ public class BrandRepository : BaseRepository<Brand>, IBrandRepository
         using var connection = _context.CreateConnection();
 
         var brand = await connection.QueryFirstOrDefaultAsync<Brand>(
-            query, 
+            query,
             new { Id = id });
 
         return brand;
@@ -60,7 +60,7 @@ public class BrandRepository : BaseRepository<Brand>, IBrandRepository
 
         var id = await connection.QueryFirstAsync<int>(
             query,
-            new { name = entity.Name} );
+            new { name = entity.Name });
 
         return id;
     }
@@ -90,7 +90,7 @@ public class BrandRepository : BaseRepository<Brand>, IBrandRepository
 
         var rowsAffected = await connection.ExecuteAsync(
             query,
-            new { id = id });
+            new { id });
 
         return rowsAffected;
     }

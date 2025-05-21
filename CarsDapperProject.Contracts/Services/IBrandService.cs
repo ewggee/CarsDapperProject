@@ -1,4 +1,5 @@
 ﻿using CarsDapperProject.Contracts.DTOs;
+using CarsDapperProject.Contracts.Requests.Brand;
 
 namespace CarsDapperProject.Contracts.Services;
 public interface IBrandService
