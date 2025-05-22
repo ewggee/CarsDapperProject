@@ -1,6 +1,6 @@
 ﻿namespace CarsDapperProject.Domain.Exceptions.Brand;
 
-public class BrandNotFoundException : EntityNotFoundException
+public class BrandNotFoundException(int id) 
+    : EntityNotFoundException("Бренд", id)
 {
-    public BrandNotFoundException(int id) : base($"Бренд с id = {id} не найден.") { }
 }
