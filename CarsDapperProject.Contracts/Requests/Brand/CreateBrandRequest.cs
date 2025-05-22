@@ -1,10 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using CarsDapperProject.Contracts.Attributes;
 
 namespace CarsDapperProject.Contracts.Requests.Brand;
 
 public class CreateBrandRequest
 {
-    [Required(ErrorMessage = $"Поле {nameof(Name)} обязательно.")]
-    [Length(1, 100, ErrorMessage = $"Поле {nameof(Name)} должно быть от 1 до 100 символов.")]
+    [RequiredField]
+    [StringLengthField(min: 1, max: 100)]
     public string Name { get; set; }
 }
