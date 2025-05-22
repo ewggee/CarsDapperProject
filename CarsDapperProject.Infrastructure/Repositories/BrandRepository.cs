@@ -1,8 +1,9 @@
-﻿using CarsDapperProject.Domain.Entities;
+﻿using CarsDapperProject.DataAccess.Dapper;
+using CarsDapperProject.Domain.Entities;
 using CarsDapperProject.Domain.Repositories;
 using Dapper;
 
-namespace CarsDapperProject.Percistance.DataAccess.Repositories;
+namespace CarsDapperProject.DataAccess.Repositories;
 
 public class BrandRepository : BaseRepository<Brand>, IBrandRepository
 {

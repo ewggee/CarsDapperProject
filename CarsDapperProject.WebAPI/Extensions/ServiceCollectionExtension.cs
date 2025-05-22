@@ -1,9 +1,9 @@
 ﻿using CarsDapperProject.Application.Services;
 using CarsDapperProject.Contracts.Services;
+using CarsDapperProject.DataAccess.Dapper;
+using CarsDapperProject.DataAccess.Repositories;
 using CarsDapperProject.Domain.Migrations;
 using CarsDapperProject.Domain.Repositories;
-using CarsDapperProject.Infrastructure.DataAccess;
-using CarsDapperProject.Percistance.DataAccess.Repositories;
 using FluentMigrator.Runner;
 
 namespace CarsDapperProject.WebAPI.Extensions;

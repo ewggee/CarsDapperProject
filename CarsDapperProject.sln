@@ -9,11 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarsDapperProject.Applicati
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarsDapperProject.Domain", "CarsDapperProject.Domain\CarsDapperProject.Domain.csproj", "{689C5E78-823C-4C6E-8ADA-1330857E8C12}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarsDapperProject.Percistance", "CarsDapperProject.Infrastructure\CarsDapperProject.Percistance.csproj", "{E229F1C3-BD26-41E7-8B51-2ABF11AF5E73}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarsDapperProject.DataAccess", "CarsDapperProject.Infrastructure\CarsDapperProject.DataAccess.csproj", "{E229F1C3-BD26-41E7-8B51-2ABF11AF5E73}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{395C03F7-71DC-4B4E-B410-B4C024B20B87}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarsDapperProject.Contracts", "CarsDapperProject.Contracts\CarsDapperProject.Contracts.csproj", "{B9F3AAE2-D09F-43F6-8EE5-53EF0F996268}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarsDapperProject.Contracts", "CarsDapperProject.Contracts\CarsDapperProject.Contracts.csproj", "{B9F3AAE2-D09F-43F6-8EE5-53EF0F996268}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{908EE00E-B2E3-4C5A-BC18-E7444CC6488A}"
 EndProject
