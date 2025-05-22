@@ -6,37 +6,37 @@ namespace CarsDapperProject.Application.Mappers;
 
 public static class BrandMapper
 {
-    public static Brand MapToEntity(this BrandDto brandDto)
+    public static Brand MapToEntity(this BrandDto _)
     {
         return new Brand
         {
-            Id = brandDto.Id,
-            Name = brandDto.Name
+            Id = _.Id,
+            Name = _.Name
         };
     }
 
-    public static BrandDto MapToDto(this Brand brand)
+    public static BrandDto MapToDto(this Brand _)
     {
         return new BrandDto
         {
-            Id = brand.Id,
-            Name = brand.Name
+            Id = _.Id,
+            Name = _.Name
         };
     }
 
-    public static Brand MapToEntity(this CreateBrandRequest createBrandRequest)
+    public static Brand MapToEntity(this CreateBrandRequest _)
     {
         return new Brand
         {
-            Name = createBrandRequest.Name
+            Name = _.Name
         };
     }
 
-    public static Brand MapToEntity(this UpdateBrandRequest updateBrandRequest)
+    public static Brand MapToEntity(this UpdateBrandRequest _)
     {
         return new Brand
         {
-            Name = updateBrandRequest.Name
+            Name = _.Name
         };
     }
 }
