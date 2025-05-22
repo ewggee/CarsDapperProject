@@ -2,16 +2,16 @@
 using CarsDapperProject.Contracts.Requests.Brand;
 using CarsDapperProject.Domain.Entities;
 
-namespace CarsDapperProject.Application.Extensions;
+namespace CarsDapperProject.Application.Mappers;
 
-public static class BrandExtension
+public static class BrandMapper
 {
     public static Brand MapToEntity(this BrandDto brandDto)
     {
-        return new Brand 
+        return new Brand
         {
             Id = brandDto.Id,
-            Name = brandDto.Name 
+            Name = brandDto.Name
         };
     }
 
