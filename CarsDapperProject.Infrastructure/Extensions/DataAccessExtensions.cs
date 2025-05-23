@@ -1,32 +1,37 @@
-﻿using CarsDapperProject.Application.Services;
-using CarsDapperProject.Contracts.Services;
+﻿using CarsDapperProject.Contracts.Settings;
 using CarsDapperProject.DataAccess.Dapper;
 using CarsDapperProject.DataAccess.Repositories;
 using CarsDapperProject.Domain.Migrations;
 using CarsDapperProject.Domain.Repositories;
 using FluentMigrator.Runner;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 
-namespace CarsDapperProject.WebAPI.Extensions;
+namespace CarsDapperProject.DataAccess.Extensions;
 
-public static class ServiceCollectionExtension
+public static class DataAccessExtensions
 {
-    public static IServiceCollection AddServices(this IServiceCollection services)
+    public static IServiceCollection AddDapper(this IServiceCollection services, IConfiguration configuration)
     {
-        services.AddScoped<IBrandService, BrandService>();
+        services.AddScoped<IDapperContext, DapperContext>();
+
+        services.Configure<DapperSettings>(o =>
+        {
+            o.ConnectionString = configuration.GetConnectionString("DefaultConnection")!;
+        });
 
         return services;
     }
 
     public static IServiceCollection AddRepositories(this IServiceCollection services, IConfiguration configuration)
     {
-        services.AddSingleton(new DapperContext(configuration.GetConnectionString("DefaultConnection")!));
-
         services.AddScoped<IBrandRepository, BrandRepository>();
+        services.AddScoped<ICarRepository, CarRepository>();
 
         return services;
     }
 
-    public static IServiceCollection MigrateUp(this IServiceCollection services, IConfiguration configuration)
+    public static IServiceCollection AddFluentMigrator(this IServiceCollection services, IConfiguration configuration)
     {
         services
             .AddLogging(x => x.AddFluentMigratorConsole())
@@ -38,6 +43,11 @@ public static class ServiceCollectionExtension
             .AddLogging(lb => lb.AddFluentMigratorConsole())
             .BuildServiceProvider(false);
 
+        return services;
+    }
+
+    public static IServiceCollection MigrateUp(this IServiceCollection services)
+    {
         using (var scope = services.BuildServiceProvider().CreateScope())
         {
             var runner = scope.ServiceProvider.GetRequiredService<IMigrationRunner>();
