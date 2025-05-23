@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CarsDapperProject.Contracts\CarsDapperProject.Contracts.csproj" />
     <ProjectReference Include="..\CarsDapperProject.Domain\CarsDapperProject.Domain.csproj" />
   </ItemGroup>
 

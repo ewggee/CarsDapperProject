@@ -1,5 +1,5 @@
-
-using CarsDapperProject.WebAPI.Extensions;
+using CarsDapperProject.Application.Extensions;
+using CarsDapperProject.DataAccess.Extensions;
 
 namespace CarsDapperProject.WebAPI;
 
@@ -11,9 +11,11 @@ public class Program
 
         // Add services to the container.
         builder.Services
+            .AddDapper(builder.Configuration)
             .AddServices()
             .AddRepositories(builder.Configuration)
-            .MigrateUp(builder.Configuration);
+            .AddFluentMigrator(builder.Configuration)
+            .MigrateUp();
 
         builder.Services.AddControllers();
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

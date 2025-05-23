@@ -1,4 +1,4 @@
-﻿namespace CarsDapperProject.Application.Abstractions;
+﻿namespace CarsDapperProject.Domain.Entities;
 
 public interface IEntity
 {

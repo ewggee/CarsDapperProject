@@ -13,7 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CarsDapperProject.Core\CarsDapperProject.Application.csproj" />
-    <ProjectReference Include="..\CarsDapperProject.Infrastructure\CarsDapperProject.Infrastructure.csproj" />
+    <ProjectReference Include="..\CarsDapperProject.Infrastructure\CarsDapperProject.DataAccess.csproj" />
   </ItemGroup>
 
 </Project>
