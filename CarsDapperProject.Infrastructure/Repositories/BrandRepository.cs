@@ -5,7 +5,7 @@ using CarsDapperProject.Domain.Repositories;
 
 namespace CarsDapperProject.DataAccess.Repositories;
 
-public class BrandRepository : BaseRepository<Brand>, IBrandRepository
+public class BrandRepository : IBrandRepository
 {
     private readonly IDapperContext _context;
 
