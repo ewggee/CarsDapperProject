@@ -1,54 +1,61 @@
-﻿using CarsDapperProject.DataAccess.Dapper;
+﻿using CarsDapperProject.Application.Mappers;
+using CarsDapperProject.DataAccess.Dapper;
+using CarsDapperProject.DataAccess.Scripts;
 using CarsDapperProject.Domain.Entities;
+using CarsDapperProject.Domain.QueryModels.Car;
 using CarsDapperProject.Domain.Repositories;
-using Dapper;
 
 namespace CarsDapperProject.DataAccess.Repositories;
 
-public class CarRepository : BaseRepository<Car>, ICarRepository
+public class CarRepository : ICarRepository
 {
-    private readonly DapperContext _context;
+    private readonly IDapperContext _context;
 
-    public CarRepository(DapperContext context)
+    public CarRepository(IDapperContext context)
     {
         _context = context;
     }
 
-    public async override Task<Car?> GetByIdAsync(int id)
+    public async Task<int> AddAsync(Car car)
     {
-        var query = $@"
-            SELECT 
-            id as {nameof(Car.Id)},
-            model as {nameof(Car.Model)},
-            brand_id as {nameof(Car.BrandId)},
-            owner_id as {nameof(Car.OwnerId)}
-            FROM cars 
-            WHERE id = @id";
+        var id = await _context.ExecuteWithResult<int>(new QueryObject(
+            Sql.AddCar,
+            new { model = car.Model, brand_id = car.BrandId, owner_id = car.OwnerId }));
 
-        using var connection = _context.CreateConnection();
+        return id;
+    }
 
-        var car = await connection.QueryFirstOrDefaultAsync<Car>(
-            query,
-            new { Id = id });
+    public async Task<int> DeleteAsync(int id)
+    {
+        var affectedRows = await _context.Execute(new QueryObject(
+            Sql.DeleteCar,
+            new { id = id }));
+
+        return affectedRows;
+    }
+
+    public async Task<IEnumerable<CarWithOwner>> GetAllCarsByBrandAsync(int brandId)
+    {
+        var cars = await _context.ListOrEmpty<CarWithOwner>(new QueryObject(
+            Sql.GetAllCarsByBrand,
+            new { brand_id = brandId}));
+
+        return cars;
+    }
+
+    public async Task<CarWithOwner?> GetByIdAsync(int id)
+    {
+        var car = await _context.FirstOrDefault<CarWithOwner>(new QueryObject(
+            Sql.GetCarById,
+            new { id = id }));
 
         return car;
     }
 
-    public async override Task<int> AddAsync(Car entity)
+    public async Task UpdateAsync(Car car)
     {
-        var query = $@"
-            INSERT INTO 
-            cars (model, brand_id, owner_id) 
-            VALUES
-            (@model, @brand_id, @owner_id)
-            RETURNING id";
-
-        using var connection = _context.CreateConnection();
-
-        var id = await connection.QueryFirstAsync<int>(
-            query,
-            new { model = entity.Model, brand_id = entity.BrandId, owner_id = entity.OwnerId });
-
-        return id;
+        await _context.Execute(new QueryObject(
+            Sql.UpdateCar,
+            new { id = car.Id, model = car.Model, brand_id = car.BrandId, owner_id = car.OwnerId }));
     }
 }

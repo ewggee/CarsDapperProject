@@ -56,4 +56,11 @@ public class BrandRepository : IBrandRepository
 
         return rowsAffected;
     }
+
+    public async Task<bool> IsBrandExistsAsync(int id)
+    {
+        return await _context.ExecuteWithResult<bool>(new QueryObject(
+            Sql.IsBrandByIdExists,
+            new { id = id }));
+    }
 }

@@ -1,13 +1,14 @@
 ﻿using CarsDapperProject.Domain.Entities;
+using CarsDapperProject.Domain.QueryModels.Car;
 
 namespace CarsDapperProject.Domain.Repositories;
 
-public interface IBrandRepository
+public interface ICarRepository
 {
-    Task<Brand?> GetByIdAsync(int id);
-    Task<IEnumerable<Brand>> GetAllAsync();
-    Task<int> AddAsync(Brand brand);
-    Task UpdateAsync(Brand brand);
+    Task<CarWithOwner?> GetByIdAsync(int id);
+    Task<IEnumerable<CarWithOwner>> GetAllCarsByBrandAsync(int brandId);
+    Task<int> AddAsync(Car car);
+    Task UpdateAsync(Car car);
     /// <summary>
     /// Удаляет запись по <paramref name="id"/> и возвращает количество затронутых записей.
     /// </summary>
@@ -15,5 +16,4 @@ public interface IBrandRepository
     /// Количество удалённых записей.
     /// </returns>
     Task<int> DeleteAsync(int id);
-    Task<bool> IsBrandExistsAsync(int id);
 }

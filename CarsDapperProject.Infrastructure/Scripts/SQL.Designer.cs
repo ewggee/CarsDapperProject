@@ -74,12 +74,35 @@ namespace CarsDapperProject.DataAccess.Scripts {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to INSERT INTO 
+        ///    cars (model, brand_id, owner_id) 
+        ///VALUES
+        ///    (@model, @brand_id, @owner_id)
+        ///RETURNING id.
+        /// </summary>
+        internal static string AddCar {
+            get {
+                return ResourceManager.GetString("AddCar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to DELETE FROM brands 
         ///WHERE id = @id.
         /// </summary>
         internal static string DeleteBrand {
             get {
                 return ResourceManager.GetString("DeleteBrand", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DELETE FROM cars
+        ///WHERE id = @id.
+        /// </summary>
+        internal static string DeleteCar {
+            get {
+                return ResourceManager.GetString("DeleteCar", resourceCulture);
             }
         }
         
@@ -92,6 +115,22 @@ namespace CarsDapperProject.DataAccess.Scripts {
         internal static string GetAllBrands {
             get {
                 return ResourceManager.GetString("GetAllBrands", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT
+        ///    c.id,
+        ///    c.model,
+        ///    c.owner_id AS &quot;OwnerId&quot;,
+        ///    o.name AS &quot;OwnerName&quot;
+        ///FROM cars c
+        ///LEFT JOIN owners o ON c.owner_id = o.id
+        ///WHERE c.brand_id = @brand_id.
+        /// </summary>
+        internal static string GetAllCarsByBrand {
+            get {
+                return ResourceManager.GetString("GetAllCarsByBrand", resourceCulture);
             }
         }
         
@@ -109,6 +148,37 @@ namespace CarsDapperProject.DataAccess.Scripts {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to SELECT
+        ///    c.id,
+        ///    c.model,
+        ///    c.brand_id AS &quot;BrandId&quot;,
+        ///    c.owner_id AS &quot;OwnerId&quot;,
+        ///	b.name AS &quot;BrandName&quot;,
+        ///    o.name AS &quot;OwnerName&quot;
+        ///FROM cars c
+        ///INNER JOIN brands b ON c.brand_id = b.id
+        ///LEFT JOIN owners o ON c.owner_id = o.id
+        ///WHERE c.id = @id.
+        /// </summary>
+        internal static string GetCarById {
+            get {
+                return ResourceManager.GetString("GetCarById", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT EXISTS(
+        ///	SELECT id 
+        ///	FROM brands
+        ///	WHERE id = @id).
+        /// </summary>
+        internal static string IsBrandByIdExists {
+            get {
+                return ResourceManager.GetString("IsBrandByIdExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to UPDATE brands
         ///SET
         ///	name = COALESCE(@name, name)
@@ -117,6 +187,20 @@ namespace CarsDapperProject.DataAccess.Scripts {
         internal static string UpdateBrand {
             get {
                 return ResourceManager.GetString("UpdateBrand", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UPDATE cars
+        ///SET 
+        ///	model = COALESCE(@model, model), 
+        ///	brand_id = COALESCE(@brand_id, brand_id), 
+        ///	owner_id = COALESCE(@owner_id, owner_id) 
+        ///WHERE id = @id.
+        /// </summary>
+        internal static string UpdateCar {
+            get {
+                return ResourceManager.GetString("UpdateCar", resourceCulture);
             }
         }
     }
