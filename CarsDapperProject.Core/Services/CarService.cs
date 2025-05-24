@@ -1,6 +1,6 @@
 ﻿using CarsDapperProject.Application.Mappers;
 using CarsDapperProject.Contracts.DTOs;
-using CarsDapperProject.Contracts.Requests.Car;
+using CarsDapperProject.Contracts.DTOs.Requests.Car;
 using CarsDapperProject.Domain.Exceptions.Brand;
 using CarsDapperProject.Domain.Exceptions.Car;
 using CarsDapperProject.Domain.Repositories;

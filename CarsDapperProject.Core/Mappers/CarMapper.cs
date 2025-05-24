@@ -1,5 +1,6 @@
 ﻿using CarsDapperProject.Contracts.DTOs;
-using CarsDapperProject.Contracts.Requests.Car;
+using CarsDapperProject.Contracts.DTOs.Requests.Car;
+using CarsDapperProject.Contracts.DTOs.Responses;
 using CarsDapperProject.Domain.Entities;
 using CarsDapperProject.Domain.QueryModels.Car;
 

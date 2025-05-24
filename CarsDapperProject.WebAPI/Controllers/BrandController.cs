@@ -1,4 +1,4 @@
-﻿using CarsDapperProject.Contracts.Requests.Brand;
+﻿using CarsDapperProject.Contracts.DTOs.Requests.Brand;
 using CarsDapperProject.Contracts.Services;
 using CarsDapperProject.WebAPI.Filters;
 using Microsoft.AspNetCore.Mvc;
