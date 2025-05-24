@@ -121,16 +121,34 @@
   <data name="AddBrand" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Brand\AddBrand.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
   </data>
+  <data name="AddCar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Car\AddCar.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
   <data name="DeleteBrand" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Brand\DeleteBrand.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="DeleteCar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Car\DeleteCar.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
   </data>
   <data name="GetAllBrands" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Brand\GetAllBrands.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
   </data>
+  <data name="GetAllCarsByBrand" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Car\GetAllCarsByBrand.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
   <data name="GetBrandById" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Brand\GetBrandById.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
   </data>
+  <data name="GetCarById" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Car\GetCarById.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="IsBrandByIdExists" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Brand\IsBrandByIdExists.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
   <data name="UpdateBrand" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Brand\UpdateBrand.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="UpdateCar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Car\UpdateCar.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
   </data>
 </root>
