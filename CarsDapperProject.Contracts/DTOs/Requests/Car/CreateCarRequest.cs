@@ -1,12 +1,14 @@
 ﻿using CarsDapperProject.Contracts.Attributes;
 
-namespace CarsDapperProject.Contracts.Requests.Car;
+namespace CarsDapperProject.Contracts.DTOs.Requests.Car;
 
-public class UpdateCarRequest
+public class CreateCarRequest
 {
+    [RequiredField]
     [StringLengthField(min: 1, max: 100)]
     public string Model { get; set; }
 
+    [RequiredField]
     [RangeField(min: 1, max: int.MaxValue)]
     public int BrandId { get; set; }
 

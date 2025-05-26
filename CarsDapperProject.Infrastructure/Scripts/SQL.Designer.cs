@@ -87,6 +87,19 @@ namespace CarsDapperProject.DataAccess.Scripts {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to INSERT INTO 
+        ///	owners (name, phone, email)
+        ///VALUES 
+        ///	(@name, @phone, @email)
+        ///RETURNING id.
+        /// </summary>
+        internal static string AddOwner {
+            get {
+                return ResourceManager.GetString("AddOwner", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to DELETE FROM brands 
         ///WHERE id = @id.
         /// </summary>
@@ -103,6 +116,16 @@ namespace CarsDapperProject.DataAccess.Scripts {
         internal static string DeleteCar {
             get {
                 return ResourceManager.GetString("DeleteCar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DELETE FROM owners
+        ///WHERE id = @id.
+        /// </summary>
+        internal static string DeleteOwner {
+            get {
+                return ResourceManager.GetString("DeleteOwner", resourceCulture);
             }
         }
         
@@ -131,6 +154,35 @@ namespace CarsDapperProject.DataAccess.Scripts {
         internal static string GetAllCarsByBrand {
             get {
                 return ResourceManager.GetString("GetAllCarsByBrand", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT
+        ///    c.model,
+        ///    b.name AS &quot;Brand&quot;
+        ///FROM cars c
+        ///INNER JOIN brands b ON c.brand_id = b.id
+        ///WHERE c.owner_id = @owner_id.
+        /// </summary>
+        internal static string GetAllCarsByOwner {
+            get {
+                return ResourceManager.GetString("GetAllCarsByOwner", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT
+        ///	id,
+        ///	name,
+        ///	phone,
+        ///	email
+        ///FROM owners
+        ///WHERE id = @id.
+        /// </summary>
+        internal static string GetAllOwners {
+            get {
+                return ResourceManager.GetString("GetAllOwners", resourceCulture);
             }
         }
         
@@ -167,6 +219,21 @@ namespace CarsDapperProject.DataAccess.Scripts {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to SELECT
+        ///	id,
+        ///	name,
+        ///	phone,
+        ///	email
+        ///FROM owners
+        ///WHERE id = @id.
+        /// </summary>
+        internal static string GetOwnerWithCarById {
+            get {
+                return ResourceManager.GetString("GetOwnerWithCarById", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to SELECT EXISTS(
         ///	SELECT id 
         ///	FROM brands
@@ -175,6 +242,18 @@ namespace CarsDapperProject.DataAccess.Scripts {
         internal static string IsBrandByIdExists {
             get {
                 return ResourceManager.GetString("IsBrandByIdExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT EXISTS (
+        ///	SELECT id 
+        ///	FROM owners
+        ///	WHERE id = @id).
+        /// </summary>
+        internal static string IsOwnerByIdExists {
+            get {
+                return ResourceManager.GetString("IsOwnerByIdExists", resourceCulture);
             }
         }
         
@@ -201,6 +280,20 @@ namespace CarsDapperProject.DataAccess.Scripts {
         internal static string UpdateCar {
             get {
                 return ResourceManager.GetString("UpdateCar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UPDATE owners
+        ///SET 
+        ///	name = COALESCE(@name, name),
+        ///	phone = COALESCE(@phone, phone),
+        ///	email = COALESCE(@email, email)
+        ///WHERE id = @id.
+        /// </summary>
+        internal static string UpdateOwner {
+            get {
+                return ResourceManager.GetString("UpdateOwner", resourceCulture);
             }
         }
     }

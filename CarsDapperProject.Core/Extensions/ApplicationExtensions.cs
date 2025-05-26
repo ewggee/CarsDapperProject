@@ -9,7 +9,8 @@ public static class ApplicationExtensions
     public static IServiceCollection AddServices(this IServiceCollection services)
     {
         services.AddScoped<IBrandService, BrandService>();
-        services.AddScoped<CarService>();
+        services.AddScoped<ICarService, CarService>();
+        services.AddScoped<OwnerService>();
 
         return services;
     }

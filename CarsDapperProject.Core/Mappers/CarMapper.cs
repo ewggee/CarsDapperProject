@@ -1,5 +1,5 @@
 ﻿using CarsDapperProject.Contracts.DTOs;
-using CarsDapperProject.Contracts.Requests.Car;
+using CarsDapperProject.Contracts.DTOs.Requests.Car;
 using CarsDapperProject.Domain.Entities;
 using CarsDapperProject.Domain.QueryModels.Car;
 
@@ -33,7 +33,7 @@ public static class CarMapper
         {
             Id = _.Id,
             Model = _.Model,
-            Owner = new OwnerDto
+            Owner = new ShortOwnerDto
             {
                 Name = _.OwnerName
             }

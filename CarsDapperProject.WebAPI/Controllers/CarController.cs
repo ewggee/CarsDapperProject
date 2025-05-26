@@ -1,5 +1,5 @@
 ﻿using CarsDapperProject.Application.Services;
-using CarsDapperProject.Contracts.Requests.Car;
+using CarsDapperProject.Contracts.DTOs.Requests.Car;
 using CarsDapperProject.WebAPI.Filters;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,9 +10,9 @@ namespace CarsDapperProject.WebAPI.Controllers;
 [TypeFilter<ApiExceptionFilter>]
 public class CarController : ControllerBase
 {
-    private readonly CarService _carService;
+    private readonly ICarService _carService;
 
-    public CarController(CarService carService)
+    public CarController(ICarService carService)
     {
         _carService = carService;
     }

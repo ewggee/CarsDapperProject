@@ -1,23 +1,27 @@
 ﻿using CarsDapperProject.Application.Mappers;
 using CarsDapperProject.Contracts.DTOs;
-using CarsDapperProject.Contracts.Requests.Car;
+using CarsDapperProject.Contracts.DTOs.Requests.Car;
 using CarsDapperProject.Domain.Exceptions.Brand;
 using CarsDapperProject.Domain.Exceptions.Car;
+using CarsDapperProject.Domain.Exceptions.Owner;
 using CarsDapperProject.Domain.Repositories;
 
 namespace CarsDapperProject.Application.Services;
 
-public class CarService
+public class CarService : ICarService
 {
     private readonly ICarRepository _carRepository;
     private readonly IBrandRepository _brandRepository;
+    private readonly IOwnerRepository _ownerRepository;
 
     public CarService(
-        ICarRepository carRepository, 
-        IBrandRepository brandRepository)
+        ICarRepository carRepository,
+        IBrandRepository brandRepository,
+        IOwnerRepository ownerRepository)
     {
         _carRepository = carRepository;
         _brandRepository = brandRepository;
+        _ownerRepository = ownerRepository;
     }
 
     public async Task<CarDto> GetCarByIdAsync(int id)
@@ -37,11 +41,17 @@ public class CarService
 
     public async Task<int> AddCarAsync(CreateCarRequest createCarRequest)
     {
+        //TODO: внедрить транзакцию для избежания фантомного чтения
         var isBrandExists = await _brandRepository.IsBrandExistsAsync(createCarRequest.BrandId);
-        if (!isBrandExists) 
+        if (!isBrandExists)
             throw new BrandNotFoundException(createCarRequest.BrandId);
 
-        //TODO: is owner exists
+        if (createCarRequest.OwnerId.HasValue)
+        {
+            var isOwnerExists = await _ownerRepository.IsOwnerByIdExistsAsync(createCarRequest.OwnerId.Value);
+            if (!isOwnerExists)
+                throw new OwnerNotFoundException(createCarRequest.OwnerId.Value);
+        }
 
         var id = await _carRepository.AddAsync(createCarRequest.MapToEntity());
 
@@ -50,11 +60,17 @@ public class CarService
 
     public async Task UpdateCarAsync(int id, UpdateCarRequest updateCarRequest)
     {
+        //TODO: внедрить транзакцию для избежания фантомного чтения
         var isBrandExists = await _brandRepository.IsBrandExistsAsync(updateCarRequest.BrandId);
         if (!isBrandExists)
             throw new BrandNotFoundException(updateCarRequest.BrandId);
 
-        //TODO: is owner exists
+        if (updateCarRequest.OwnerId.HasValue)
+        {
+            var isOwnerExists = await _ownerRepository.IsOwnerByIdExistsAsync(updateCarRequest.OwnerId.Value);
+            if (!isOwnerExists)
+                throw new OwnerNotFoundException(updateCarRequest.OwnerId.Value);
+        }
 
         var car = updateCarRequest.MapToEntity();
         car.Id = id;
