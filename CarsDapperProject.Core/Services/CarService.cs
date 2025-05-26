@@ -7,13 +7,13 @@ using CarsDapperProject.Domain.Repositories;
 
 namespace CarsDapperProject.Application.Services;
 
-public class CarService
+public class CarService : ICarService
 {
     private readonly ICarRepository _carRepository;
     private readonly IBrandRepository _brandRepository;
 
     public CarService(
-        ICarRepository carRepository, 
+        ICarRepository carRepository,
         IBrandRepository brandRepository)
     {
         _carRepository = carRepository;
@@ -38,7 +38,7 @@ public class CarService
     public async Task<int> AddCarAsync(CreateCarRequest createCarRequest)
     {
         var isBrandExists = await _brandRepository.IsBrandExistsAsync(createCarRequest.BrandId);
-        if (!isBrandExists) 
+        if (!isBrandExists)
             throw new BrandNotFoundException(createCarRequest.BrandId);
 
         //TODO: is owner exists
