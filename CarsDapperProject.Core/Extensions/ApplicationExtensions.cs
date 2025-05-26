@@ -10,6 +10,7 @@ public static class ApplicationExtensions
     {
         services.AddScoped<IBrandService, BrandService>();
         services.AddScoped<ICarService, CarService>();
+        services.AddScoped<OwnerService>();
 
         return services;
     }

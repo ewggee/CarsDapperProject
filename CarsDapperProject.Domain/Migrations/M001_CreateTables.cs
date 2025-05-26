@@ -14,8 +14,8 @@ public class M001_CreateTables : Migration
         Create.Table("owners")
             .WithColumn("id").AsInt32().PrimaryKey().Identity()
             .WithColumn("name").AsString(100).NotNullable()
-            //TODO: пересмотреть макс. значение для телефона
-            .WithColumn("phone").AsString(100).NotNullable()
+            //TODO: откатить миграции
+            .WithColumn("phone").AsString(18).NotNullable()
             .WithColumn("email").AsString(100).NotNullable();
 
         Create.Table("cars")

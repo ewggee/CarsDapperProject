@@ -12,5 +12,5 @@ public class QueryObject
     }
 
     public string Sql { get; set; }
-    public object Params { get; set; }
+    public object? Params { get; set; }
 }

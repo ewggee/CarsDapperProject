@@ -27,6 +27,7 @@ public static class DataAccessExtensions
     {
         services.AddScoped<IBrandRepository, BrandRepository>();
         services.AddScoped<ICarRepository, CarRepository>();
+        services.AddScoped<IOwnerRepository, OwnerRepository>();
 
         return services;
     }

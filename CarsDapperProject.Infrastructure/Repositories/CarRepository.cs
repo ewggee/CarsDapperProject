@@ -1,5 +1,4 @@
-﻿using CarsDapperProject.Application.Mappers;
-using CarsDapperProject.DataAccess.Dapper;
+﻿using CarsDapperProject.DataAccess.Dapper;
 using CarsDapperProject.DataAccess.Scripts;
 using CarsDapperProject.Domain.Entities;
 using CarsDapperProject.Domain.QueryModels.Car;
@@ -39,6 +38,15 @@ public class CarRepository : ICarRepository
         var cars = await _context.ListOrEmpty<CarWithOwner>(new QueryObject(
             Sql.GetAllCarsByBrand,
             new { brand_id = brandId}));
+
+        return cars;
+    }
+
+    public async Task<IEnumerable<CarWithBrand>> GetAllCarsByOwnerAsync(int ownerId)
+    {
+        var cars = await _context.ListOrEmpty<CarWithBrand>(new QueryObject(
+            Sql.GetAllCarsByOwner,
+            new { owner_id = ownerId }));
 
         return cars;
     }
